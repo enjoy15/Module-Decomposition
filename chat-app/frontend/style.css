@@ -146,6 +146,8 @@ button.secondary:hover {
   margin: 16px 0 0;
   display: grid;
   gap: 12px;
+  max-height: 50vh;
+  overflow-y: auto;
 }
 
 .message {

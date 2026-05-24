@@ -1,13 +1,16 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN;
 
-app.use(cors());
+if (FRONTEND_ORIGIN) {
+  app.use(cors({ origin: FRONTEND_ORIGIN }));
+} else {
+  app.use(cors());
+}
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend')));
 
 const messages = [
   {
