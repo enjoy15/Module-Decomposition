@@ -28,7 +28,7 @@ function formatTime(isoString) {
 function renderMessages(messages) {
   messagesEl.innerHTML = '';
 
-  for (const message of messages) {
+  for (const message of [...messages].reverse()) {
     const item = document.createElement('li');
     item.className = 'message';
 
@@ -41,12 +41,6 @@ function renderMessages(messages) {
     `;
 
     messagesEl.appendChild(item);
-  }
-
-  if (messages.length !== lastMessageCount && messages.length > 0) {
-    requestAnimationFrame(() => {
-      messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: 'smooth' });
-    });
   }
 
   lastMessageCount = messages.length;

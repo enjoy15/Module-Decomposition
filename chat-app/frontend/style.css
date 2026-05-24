@@ -63,6 +63,12 @@ p {
   margin-bottom: 18px;
 }
 
+.panel--compose {
+  position: sticky;
+  top: 16px;
+  z-index: 1;
+}
+
 .form {
   display: grid;
   gap: 14px;
@@ -146,7 +152,7 @@ button.secondary:hover {
   margin: 16px 0 0;
   display: grid;
   gap: 12px;
-  max-height: 50vh;
+  max-height: 55vh;
   overflow-y: auto;
 }
 
