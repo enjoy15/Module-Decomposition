@@ -44,7 +44,9 @@ function renderMessages(messages) {
   }
 
   if (messages.length !== lastMessageCount && messages.length > 0) {
-    messagesEl.lastElementChild?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    requestAnimationFrame(() => {
+      messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: 'smooth' });
+    });
   }
 
   lastMessageCount = messages.length;
